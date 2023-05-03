@@ -12,5 +12,5 @@ export const savedDataInLocalStorage = (data: TodosDTO[]) => {
     localStorage.setItem('todos', JSON.stringify(data));
 };
 export const getDataFromLocalStorage = () => {
-    return JSON.parse(localStorage.getItem('todos') || 'null');
+    return JSON.parse(localStorage.getItem('todos') || '[]');
 };

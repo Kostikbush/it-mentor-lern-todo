@@ -12,7 +12,6 @@
         }
     },
     "plugins": ["jsx-a11y", "@typescript-eslint"],
-    // add new rules here
     "rules": {
         "no-console": ["warn", { "allow": ["warn", "error"] }],
         "curly": ["error", "multi-line"],

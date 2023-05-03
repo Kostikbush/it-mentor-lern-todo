@@ -1,6 +1,6 @@
 import { Button, ButtonProps, styled } from '@mui/material';
 
-interface Props {
+interface BtnProps {
     style?: { [key: string]: string };
     text: string;
     handleClick: () => void;
@@ -25,7 +25,8 @@ const ColorButton = styled(Button)<ButtonProps>(sx => ({
     },
     ...sx,
 }));
-export const Btn = ({ handleClick, text, style = {} }: Props) => {
+
+export const Btn = ({ handleClick, text, style = {} }: BtnProps) => {
     return (
         <ColorButton sx={style} onClick={handleClick} variant='outlined'>
             {text}

@@ -12,7 +12,7 @@ import { AddTodoAndFilterMemo } from './AddTodoAndFilter';
 let arr = Array.from(Array(3).keys());
 
 const Todos = () => {
-    const [todos, setTodos] = useState<TodosDTO[] | null>(null);
+    const [todos, setTodos] = useState<TodosDTO[]>([]);
     const [showTodos, setShowTodos] = useState<showTodosState>(showTodosState.ALL);
     let nodeRef = useRef(todos ? null : todos);
 
@@ -57,8 +57,8 @@ const Todos = () => {
         if (todos) savedDataInLocalStorage(todos);
     }, [todos]);
 
-    let actualTodos: TodosDTO[] | null = useMemo(() => {
-        if (!todos) return null;
+    let actualTodos: TodosDTO[] = useMemo(() => {
+        if (!todos) return [];
         switch (showTodos) {
             case showTodosState.ALL:
                 return todos;
@@ -88,9 +88,9 @@ const Todos = () => {
                     classNames='changeScele'
                     unmountOnExit
                 >
-                    {actualTodos !== null ? (
+                    {todos.length > 0 ? (
                         <>
-                            <CountOfTodos count={todos ? todos.length : 0} />
+                            <CountOfTodos count={todos.length} />
                             <TransitionGroup className='todo-list'>
                                 {actualTodos.map(todo => (
                                     <CSSTransition

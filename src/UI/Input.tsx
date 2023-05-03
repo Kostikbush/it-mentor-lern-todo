@@ -15,14 +15,14 @@ const theme = createTheme({
         },
     },
 });
-interface Props {
+interface InputProps {
     text: string;
     handleChange: Function;
     width: number;
     textField: string;
     placeholderText?: string;
 }
-export const Input = ({ handleChange, text, width, textField, placeholderText = '' }: Props) => {
+export const Input = ({ handleChange, text, width, textField, placeholderText = '' }: InputProps) => {
     return (
         <ThemeProvider theme={theme}>
             <TextField
